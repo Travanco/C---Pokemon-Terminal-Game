@@ -1,0 +1,31 @@
+1/29/22: Created path builder to help connect exits
+1/31/22: Created function to add Pokemon Cart and Pokemon Mart. Also added function to add grass,clearing,tree and boulder regions
+2/1/22: Added bug fixes to path to require minimum distances between paths to 2. Also a bug fix for Mart and Center placement to prevent it from being placed
+over path. There is a possible bug for the mart where it may place the mart on the N->S path but that is a rare occurence.
+2/6/22: Created function to change maps on N S E W coordinates. Refactored TerrainGeneration.h to allow coordinate inputs so the exits are randomly generated in Map2Map.c instead of TerrainGeneration.h
+2/8/22: Added border functionality when generating new maps. Also made sure that it blocked of two sides if the map is generate in the corner of the map. Created neighborCheck function a way of trying to connect newly generated maps with pre-existing maps.
+Added integer values to the singular map struct so that exit locations can be returned from pre-existing maps.
+Added flight functionality but only works from hardcoded values instead of user input.
+2/17/22 Used professors 1.02 solution and refactored path djikstra's algorithm to collect the cost for each element in 2d array
+2/18/22 Created functions hiker_costs and rival_costs to change the values in the heightmap 2d array. Also created distance_map method to implement the dijkstras algorithm for both hiker and rival.
+3/6/22 Added functions for the moves of each npc type. possible bug with wanderer as sometimes it moves onto a boulder if though it us checked from doing that. Bug with hiker and rival that sometimes it will move onto a boulder from the move function
+3/7/22 implemented priority queue.
+3/9/22 possible bug that sometimes two npcs would widen the board if the spawn next to each other.
+3/20/22 Implemented key binds for movement,rest,and enter/exit buildings and list of trainers.
+3/21/22 connected pc movement with key binds and implemented collision detection for pc.
+3/22/22 PC can now change maps, implemented battle screen if pc collides with npc. A minor bug where after changing map the button has to be hit twice in order to appear on the next map.
+3/24/22 Added list of trainers with location based on pc. Added color to window.
+4/6/22  Added 10% chance that a pokemon will appear if walking through grass. level is based on distance from the origin map. Pokemon name and stats are printed on a window that appears when pokemon is encountered. Possible bug if the moves are not present in the csv file.
+4/10/22 Created battle between wild pokemon and if beaten wild pokemon will be added to pc bag
+4/12/22 Create battle between trainers and pc if pc beats trainer pokemon another would be pulled out.
+4/13/22 (Fixed)There is a bug that when the first move is made a larger random number is printed because it has not conducted hit damage for the trainer pokemon.
+Also a bug that if there is a nearby trainer or wild pokemon after the battle the map will not pop up again until the second battle has been completed.
+4/14/22 Corrected bug that prints very large number. In order to open bag it is B(Shift + B) p to use potion and r to revive and select which pokemon you would like to add the powerup to.
+IN BATTLE KEYBINDS: #1 for move 1 #2 for move 2  's' to reselect pokemon 'f' to escape in wild pokemon battle but will put your pokemon to sleep.
+4/22/22 Added pokebucks feature so that trainers will give pokebucks after being defeated.
+4/24/22 Added purchasable items to pokemart to sell pokeballs revives potions to pc. Also added storage feature to battles and pokemon center.
+Possible bug when in battle with wild pokemon that the battle will freeze before showing that the pokemon has ran away
+Possible error in equation as there are a lot of misses for some reason
+4/25/22 Pokeballs will now decrement after catching or losing wild pokemon. and if there are no pokeballs run away screen will show. Pokebucks added to bag overlay
+4/27/22 Added type effectiveness for attack moves and included it into the equation for calculating damage of pokemon.
+5/5/22 Corrected error with missing Pokemon power still possible bug that the run away screen will not show until after space is pressed.

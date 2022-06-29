@@ -1,0 +1,246 @@
+
+character.h,63
+# define CHARACTER_H2,20
+typedef int16_t pair_t[pair_t10,99
+
+db_parse.h,1929
+# define DB_PARSE_H2,19
+struct pokemon_db 4,40
+  int id;5,60
+  char identifier[identifier6,70
+  int species_id;7,93
+  int height;8,111
+  int weight;9,125
+  int base_experience;10,139
+  int order;11,162
+  int is_default;12,175
+  int level;13,193
+struct move_db 16,210
+  int id;17,227
+  char identifier[identifier18,237
+  int generation_id;19,260
+  int type_id;20,281
+  int power;21,296
+  int pp;22,309
+  int accuracy;23,319
+  int priority;24,335
+  int target_id;25,351
+  int damage_class_id;26,368
+  int effect_id;27,391
+  int effect_chance;28,408
+  int contest_type_id;29,429
+  int contest_effect_id;30,452
+  int super_contest_effect_id;31,477
+struct pokemon_move_db 34,512
+  int pokemon_id;35,537
+  int version_group_id;36,555
+  int move_id;37,579
+  int pokemon_move_method_id;38,594
+  int level;39,624
+  int order;40,637
+struct pokemon_species_db 43,654
+  int id;44,682
+  char identifier[identifier45,692
+  int generation_id;46,715
+  int evolves_from_species_id;47,736
+  int evolution_chain_id;48,767
+  int color_id;49,793
+  int shape_id;50,809
+  int habitat_id;51,825
+  int gender_rate;52,843
+  int capture_rate;53,862
+  int base_happiness;54,882
+  int is_baby;55,904
+  int hatch_counter;56,919
+  int has_gender_differences;57,940
+  int growth_rate_id;58,970
+  int forms_switchable;59,992
+  int is_legendary;60,1016
+  int is_mythical;61,1036
+  int order;62,1055
+  int conquest_order;63,1068
+struct experience_db 66,1094
+  int growth_rate_id;67,1117
+  int level;68,1139
+  int experience;69,1152
+struct pokemon_stats_db 72,1174
+  int pokemon_id;73,1200
+  int stat_id;74,1218
+  int base_stat;75,1233
+  int	effort;76,1250
+struct pokemon_types_db{pokemon_types_db79,1268
+  int pokemon_id;80,1293
+  int type_id;81,1311
+  int slot;82,1326
+struct type_efficacy_db 85,1342
+  int damage_type_id;86,1368
+  int target_type_id;87,1390
+  int damage_factor;88,1412
+
+heap.c,1020
+struct heap_node 8,99
+  heap_node_t *next;next9,118
+  heap_node_t *prev;prev10,139
+  heap_node_t *parent;parent11,160
+  heap_node_t *child;child12,183
+  void *datum;datum13,205
+  uint32_t degree;14,220
+  uint32_t mark;15,239
+#define swap(18,260
+#define splice_heap_node_lists(24,372
+#define insert_heap_node_in_list(33,684
+#define remove_heap_node_from_list(40,908
+void print_heap_node(45,1041
+void print_heap(61,1363
+void print_heap_node_list(78,1665
+void heap_init(94,1864
+void heap_node_delete(104,2100
+void heap_delete(122,2404
+heap_node_t *heap_insert(heap_insert133,2569
+void *heap_peek_min(heap_peek_min153,2895
+static void heap_link(158,2971
+static void heap_consolidate(172,3293
+void *heap_remove_min(heap_remove_min213,4226
+int heap_combine(248,4760
+static void heap_cut(277,5411
+static void heap_cascading_cut(291,5692
+int heap_decrease_key(305,5918
+int heap_decrease_key_no_replace(319,6160
+int32_t compare(343,6734
+char *print_int(print_int348,6833
+int main(357,6951
+
+heap.h,245
+# define HEAP_H2,15
+typedef struct heap_node heap_node_t;11,114
+typedef struct heap 13,153
+  heap_node_t *min;min14,175
+  uint32_t size;15,195
+  int32_t (*compare)compare16,212
+  void (*datum_delete)datum_delete17,269
+} heap_t;18,301
+
+io.h,55
+# define IO_H2,13
+typedef int16_t pair_t[pair_t5,45
+
+poke327.h,3218
+# define POKE327_H2,18
+using namespace std;10,142
+#define malloc(11,163
+# define rand_under(19,420
+# define rand_range(23,563
+# define UNUSED(25,637
+typedef enum dim 27,668
+  dim_x,28,687
+  dim_y,29,696
+  num_dims30,705
+} dim_t;31,716
+typedef int16_t pair_t[pair_t33,726
+#define MAP_X 35,761
+#define MAP_Y 36,791
+#define MIN_TREES 37,821
+#define MIN_BOULDERS 38,851
+#define TREE_PROB 39,881
+#define BOULDER_PROB 40,911
+#define WORLD_SIZE 41,941
+#define MIN_TRAINERS 42,972
+#define ADD_TRAINER_PROB 43,1001
+#define mappair(45,1032
+#define mapxy(46,1089
+#define heightpair(47,1124
+#define heightxy(48,1187
+typedef enum __attribute__ ((__packed__)) terrain_type 50,1229
+  ter_boulder,51,1286
+  ter_tree,52,1301
+  ter_path,53,1313
+  ter_mart,54,1325
+  ter_center,55,1337
+  ter_grass,56,1351
+  ter_clearing,57,1364
+  ter_mountain,58,1380
+  ter_forest,59,1396
+  ter_exit,60,1410
+  num_terrain_types61,1422
+} terrain_type_t;62,1442
+typedef enum __attribute__ ((__packed__)) movement_type 65,1462
+  move_hiker,66,1520
+  move_rival,67,1534
+  move_pace,68,1548
+  move_wander,69,1561
+  move_sentry,70,1576
+  move_walk,71,1591
+  move_pc,72,1604
+  num_movement_types73,1615
+} movement_type_t;74,1636
+typedef enum __attribute__ ((__packed__)) character_type 76,1656
+  char_pc,77,1715
+  char_hiker,78,1726
+  char_rival,79,1740
+  char_other,80,1754
+  num_character_types81,1768
+} character_type_t;82,1790
+class Map 86,1829
+  terrain_type_t map[map88,1850
+  uint8_t height[height89,1886
+  Character *cmap[cmap90,1918
+  heap_t turn;91,1951
+  int32_t num_trainers;92,1966
+  int8_t n,93,1990
+  int8_t n, s,93,1990
+  int8_t n, s, e,93,1990
+  int8_t n, s, e, w;93,1990
+class Pokemon{Pokemon97,2016
+    int hp;99,2041
+    int default_hp;100,2053
+    int atk;101,2073
+    int spd;102,2086
+    int spa;103,2099
+    int sd;104,2112
+    int def;105,2124
+    int spc;106,2137
+    int level;107,2150
+    int base_speed;108,2165
+    char gender[gender109,2185
+    char identifier[identifier110,2206
+    char move1[move1111,2231
+    char move2[move2112,2251
+    int move_priority[move_priority113,2271
+    int power[power114,2297
+    int accuracy[accuracy115,2315
+    int type_id;116,2336
+    int atk_id[atk_id117,2353
+    int capture_rate;118,2372
+class Character 122,2399
+  pair_t pos;124,2426
+  char symbol;125,2440
+  int next_turn;126,2455
+  vector<Pokemon> inventory;127,2472
+  virtual ~Character(128,2501
+class Pc 130,2530
+   int pokeballs;132,2569
+   int potions;133,2587
+   int revives;134,2603
+   int pokebux;135,2619
+class Npc 138,2639
+  character_type_t ctype;140,2679
+  movement_type_t mtype;141,2705
+  int defeated;142,2730
+  int p_init;143,2746
+  pair_t dir;144,2760
+class World 146,2777
+  Map *world[world148,2800
+  pair_t cur_idx;149,2838
+  Map *cur_map;cur_map150,2856
+  int hiker_dist[hiker_dist153,2979
+  int rival_dist[rival_dist154,3011
+  Pc pc;155,3043
+  vector<Pokemon> storage;156,3052
+  int quit;157,3079
+#define rand_dir(170,3489
+typedef struct path 176,3612
+  heap_node_t *hn;hn177,3634
+  uint8_t pos[pos178,3653
+  uint8_t from[from179,3671
+  int32_t cost;180,3690
+} path_t;181,3706
